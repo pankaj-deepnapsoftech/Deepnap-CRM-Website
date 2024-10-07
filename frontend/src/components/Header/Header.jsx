@@ -35,13 +35,13 @@ const Header = () => {
           </button></Link>
         </div>
         
-        <div className="visible flex-1 flex justify-end lg:hidden text-white text-4xl">
+        <div className="visible flex-1 flex justify-end lg:hidden text-white text-4xl cursor-pointer">
           <div onClick={() => setShowMenu((prev) => !prev)}>
             {showMenu ? <ImMenu4 /> : <ImMenu3 />}
           </div>
         </div>
 
-        <div className="ml-4" onClick={()=>setShowAuthenticationMenu(prev => !prev)}><MdOutlineAccountCircle color="white" size='40px' /></div>
+        <div className="ml-4 cursor-pointer" onClick={()=>setShowAuthenticationMenu(prev => !prev)}><MdOutlineAccountCircle color="white" size='40px' /></div>
       </div>
 
       {showMenu && (

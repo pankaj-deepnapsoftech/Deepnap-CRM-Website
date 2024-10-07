@@ -166,11 +166,11 @@ input[type=number] {
     justify-content: center;
 }
 
-.economical-plan{
+.economical-plan, .trial-plan{
     position: relative;
 }
 
-.economical-plan::after{
+.economical-plan::after , .trial-plan::after{
     content: 'Economical Plan';
     position: absolute;
     top: 30px;
@@ -183,6 +183,12 @@ input[type=number] {
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+}
+.trial-plan::after{
+    content: 'Trial Plan';
+    color: rgb(156, 163, 175)
+
 }
 
 @tailwind base;
