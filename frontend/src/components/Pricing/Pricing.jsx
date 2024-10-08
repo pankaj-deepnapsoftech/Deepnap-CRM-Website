@@ -27,7 +27,7 @@ const Pricing = () => {
                     <li className="flex gap-2 items-center"><GrClose  className="text-red-500" />Yearly Reports</li>
                     <li className="flex gap-2 items-center "><GrClose  className="text-red-500"/>Lifetime Access</li>
                 </ul>
-                <div  className="px-2 py-2"><button  className="w-full py-2  rounded-md text-lg  text-white border hover:bg-transparent ease-in-out duration-300 hover:text-[#ff4c4c] bg-gray-400">Try Now</button></div>
+                <div  className="px-2 py-2"><button  className="w-full py-2  rounded-md text-lg  text-white border hover:bg-transparent ease-in-out duration-300 hover:text-gray-400 bg-gray-400">Try Now</button></div>
             </div>
       {/* ********************************************************************************************************** */}
             <div className='bg-white border'>

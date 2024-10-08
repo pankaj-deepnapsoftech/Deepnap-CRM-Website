@@ -29,7 +29,7 @@ const Contact = () => {
     }
 
     try {
-      const url = process.env.REACT_APP_SUPPORT_BACKEND_URL + "support/create-support";
+      const url = process.env.REACT_APP_BACKEND_URL + "support/create-support";
       const response = await fetch(url, {
         method: "POST",
         headers: {
