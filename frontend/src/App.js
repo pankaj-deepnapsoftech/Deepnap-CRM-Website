@@ -32,6 +32,7 @@ function App() {
       if(!data.success){
         throw new Error(data.message);
       }
+      console.log(data)
       dispatch(userExists(data.organization));
     }
     catch(err){

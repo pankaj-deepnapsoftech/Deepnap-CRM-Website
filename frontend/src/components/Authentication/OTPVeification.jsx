@@ -116,18 +116,18 @@ const OTPVeification = ({ email, setIsRegistering, setForgetPassword, setOtpVerf
 
         <div className="pt-4">
           <button
-            type="submit"
-            className="w-[8rem] mb-2 lg:mb-0 lg:w-[8rem] py-1 lg:py-2 text-lg border border-[#2e2a5b] text-white bg-[#2e2a5b] rounded-full font-light hover:bg-white hover:text-[#2e2a5b] ease-in-out duration-300 mr-2"
-          >
-            Verify OTP
-          </button>
-          <button
             type="button"
             disabled={!canResend}
-            className="w-[12rem] lg:w-[12rem] py-1 lg:py-2 text-lg border border-[#2e2a5b] text-white bg-[#2e2a5b] rounded-full font-light hover:bg-white hover:text-[#2e2a5b] ease-in-out duration-300 disabled:border-[#b7b6b6] disabled:cursor-not-allowed disabled:bg-[#b7b6b6]"
+            className="w-[12rem] lg:w-[12rem] py-1 lg:py-2 text-lg border border-[#2e2a5b] text-white bg-[#2e2a5b] rounded-full font-light hover:bg-white hover:text-[#2e2a5b] ease-in-out duration-300 disabled:border-[#b7b6b6] disabled:cursor-not-allowed disabled:bg-[#b7b6b6] mr-2"
             onClick={handleResend}
           >
             Resend OTP ({secondsLeft})
+          </button>
+          <button
+            type="submit"
+            className="w-[8rem] mb-2 lg:mb-0 lg:w-[8rem] py-1 lg:py-2 text-lg border border-[#2e2a5b] text-white bg-[#2e2a5b] rounded-full font-light hover:bg-white hover:text-[#2e2a5b] ease-in-out duration-300"
+          >
+            Verify OTP
           </button>
         </div>
       </form>

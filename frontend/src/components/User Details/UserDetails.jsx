@@ -8,7 +8,7 @@ import { useCookies } from 'react-cookie';
 const UserDetails = ({ hideModal }) => {
     const [cookies, _, removeCookie] = useCookies();
 
-  const { name, email, company, city, phone, employeeCount } = useSelector(
+  const { name, email, company, city, phone, employeeCount, subscribed } = useSelector(
     (state) => state.auth
   );
   const dispatch = useDispatch();
@@ -61,6 +61,12 @@ const UserDetails = ({ hideModal }) => {
             <p className="w-[15rem]">Number of Employees</p>
             <p className="bg-[#d9d9d9] text-[#5c5c5c] py-1 px-5 rounded-sm w-[20rem]">
               {employeeCount}
+            </p>
+          </div>
+          <div className="flex flex-col md:flex-row items-start flex-wrap md:items-center gap-2 md:gap-5 mb-2">
+            <p className="w-[15rem]">Subscription status</p>
+            <p className="bg-[#d9d9d9] text-[#5c5c5c] py-1 px-5 rounded-sm w-[20rem]">
+              {subscribed ? 'Subscribed' : 'Not yet subscribed'}
             </p>
           </div>
         </div>

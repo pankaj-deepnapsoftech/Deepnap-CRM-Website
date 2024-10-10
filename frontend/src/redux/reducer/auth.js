@@ -9,7 +9,9 @@ const initialState = {
     phone: undefined,
     employeeCount: undefined,
     id: undefined,
-    verified: false
+    verified: false,
+    subscribed: false,
+    subscription: null
 }
 
 const authSlice = createSlice({
@@ -25,6 +27,8 @@ const authSlice = createSlice({
             state.employeeCount = action.payload.employeeCount;
             state.id = action.payload._id;
             state.verified = action.payload.verified;
+            state.subscribed = action.payload?.account?.subscription ? true : false;
+            state.subscription = action.payload?.account?.subscription || null;
         },
         userNotExists: (state)=>{
             state.name = undefined;
@@ -35,6 +39,8 @@ const authSlice = createSlice({
             state.employeeCount = undefined;
             state.id = undefined;
             state.verified = false;
+            state.subscribed = false;
+            state.subscription = null;
         }
     }
 });
