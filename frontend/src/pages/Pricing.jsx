@@ -1,6 +1,7 @@
 import React from "react";
 import { FcCheckmark } from "react-icons/fc";
 import { GrClose } from "react-icons/gr";
+import { Link } from "react-router-dom";
 
 const Pricing = () => {
   return (
@@ -62,7 +63,7 @@ const Pricing = () => {
                     <li className="flex gap-2 items-center "><GrClose  className="text-red-500"/>Lifetime Access</li>
 
                 </ul>
-                <div className="px-2 py-2"><button className="w-full py-2 border border-[#ff4c4c] rounded-md text-lg bg-[#ff4c4c] text-white hover:bg-transparent ease-in-out duration-300 hover:text-[#ff4c4c]">Subscribe Now</button></div>
+                <div className="px-2 py-2"><Link to='/checkout'><button className="w-full py-2 border border-[#ff4c4c] rounded-md text-lg bg-[#ff4c4c] text-white hover:bg-transparent ease-in-out duration-300 hover:text-[#ff4c4c]">Subscribe Now</button></Link></div>
             </div>
             <div className='bg-white border best-plan min-w-[25rem]'>
                 <div className='px-5 py-10 text-white bg-[#428d1b]'>
@@ -84,7 +85,7 @@ const Pricing = () => {
                     <li className="flex gap-2 items-center "><FcCheckmark/>Lifetime Access</li>
 
                 </ul>
-                <div className="px-2 py-2"><button className="w-full py-2 border border-[#428d1b] rounded-md text-lg bg-[#428d1b] text-white hover:bg-transparent ease-in-out duration-300 hover:text-[#428d1b]">Buy Now</button></div>
+                <div className="px-2 py-2"><Link to='/checkout'><button className="w-full py-2 border border-[#428d1b] rounded-md text-lg bg-[#428d1b] text-white hover:bg-transparent ease-in-out duration-300 hover:text-[#428d1b]">Buy Now</button></Link></div>
             </div>
         </div>
       </div>

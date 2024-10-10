@@ -11,6 +11,9 @@ import { useCookies } from "react-cookie";
 import { useDispatch } from "react-redux";
 import { userExists } from "./redux/reducer/auth";
 import { useEffect } from "react";
+import Checkout from "./pages/Checkout";
+import PaymentFailed from "./pages/PaymentFailed";
+import PaymentSuccess from "./pages/PaymentSuccess";
 
 function App() {
   const [cookies] = useCookies();
@@ -50,6 +53,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/pricing" element={<Pricing />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/payment-failed" element={<PaymentFailed />} />
+          <Route path="/payment-success" element={<PaymentSuccess />} />
         </Routes>
         <Footer />
       </BrowserRouter>
