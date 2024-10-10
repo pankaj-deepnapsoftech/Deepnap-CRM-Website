@@ -24,7 +24,10 @@ const UserDetails = ({ hideModal }) => {
 
   return (
     <Modal hideModal={hideModal}>
+      <div className="flex items-center justify-start relative w-fit">
       <h1 className="text-3xl font-medium text-[#262544] pt-5 px-5">Account Details</h1>
+      <span className="absolute -right-[4rem] -top-2  text-center uppercase mt-5 text-[10px] p-1 rounded-md bg-gray-100">Trial Account</span>
+      </div>
       <div className="w-max mx-auto lg:min-h-[20rem] h-auto overflow-auto">
         <div className="my-5">
           <div className="flex flex-col md:flex-row items-start flex-wrap md:items-center gap-2 md:gap-5 mb-2">

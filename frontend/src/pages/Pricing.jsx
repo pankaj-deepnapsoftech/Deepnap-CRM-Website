@@ -2,9 +2,49 @@ import React from "react";
 import { FcCheckmark } from "react-icons/fc";
 import { GrClose } from "react-icons/gr";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import {toast, ToastContainer} from "react-toastify"
+
+export const RequsetSupport = async (name, mobile, employeeCount)=>{
+  const description =`I want to know about One Time Payment Plan of CRM Software for ${employeeCount} employees`
+  const purpose = 'gym setup' 
+  const dataTosend = {description , purpose, name , mobile}
+  console.log(dataTosend)
+  try{
+    const response = await fetch(`https://deepnapcrmbackend.deepmart.shop/api/support/create-support`,
+      {
+        method: "POST",
+        headers: {
+          //   Authorization: `Bearer ${cookies?.access_token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...dataTosend
+        }),
+      }
+    )
+    const resp = await response.json()
+    if(!resp.success){
+      toast.error("Something Went Wrong")
+    }
+    else{
+      toast.success(resp.message)
+    }
+    
+
+  }catch(error){
+    console.error(error);
+  }
+}
+
+
+
 
 const Pricing = () => {
+  const {name ,phone:mobile, employeeCount,id} = useSelector((state) => state.auth);
   return (
+    <>
+    <ToastContainer/>
     <div className="mt-36">
       <div className="mb-10">
         <h1 className="text-4xl font-medium text-[#262544] text-center mb-1">
@@ -21,8 +61,8 @@ const Pricing = () => {
      {/*  */}
           <div className='bg-white border trial-plan min-w-[25rem]'>
                 <div className='px-5 py-10 text-white bg-gray-400'>
-                    <div className='text-3xl font-medium text-center'>₹ 1000/-</div>
-                    <div className='text-lg font-light text-center'>Per User Billed Monthly</div>
+                    <div className='text-3xl font-medium text-center'>FREE</div>
+                    <div className='text-lg font-light text-center'>Free Trial for 7 days</div>
                 </div>
                 <ul className='leading-8 font-light py-5 px-5'>
                 <li className="flex gap-2 items-center"><FcCheckmark />Employee Access Management</li>
@@ -37,12 +77,10 @@ const Pricing = () => {
                     <li className="flex gap-2 items-center"><GrClose   className="text-red-500"/>Support Management</li>
                     <li className="flex gap-2 items-center"><GrClose  className="text-red-500" />Yearly Reports</li>
                     <li className="flex gap-2 items-center "><GrClose  className="text-red-500"/>Lifetime Access</li>
-
                 </ul>
                 <div className="px-2 py-2"><button className="w-full py-2 border border-gray-400 rounded-md text-lg bg-gray-400 text-white hover:bg-transparent ease-in-out duration-300 hover:text-gray-400">Try Now</button></div>
             </div>
 {/*  */}
-
             <div className='bg-white border economical-plan min-w-[25rem]'>
                 <div className='px-5 py-10 text-white bg-[#ff4c4c]'>
                     <div className='text-3xl font-medium text-center'>₹ 1000/-</div>
@@ -85,11 +123,29 @@ const Pricing = () => {
                     <li className="flex gap-2 items-center "><FcCheckmark/>Lifetime Access</li>
 
                 </ul>
-                <div className="px-2 py-2"><Link to='/checkout'><button className="w-full py-2 border border-[#428d1b] rounded-md text-lg bg-[#428d1b] text-white hover:bg-transparent ease-in-out duration-300 hover:text-[#428d1b]">Buy Now</button></Link></div>
+                
+                  <div
+                  onClick={()=>RequsetSupport(name ,mobile, employeeCount)}
+                   className="px-2 py-2">
+                   {
+                     id ? 
+                     <button className="w-full py-2 border border-[#428d1b] rounded-md text-lg bg-[#428d1b] text-white hover:bg-transparent ease-in-out duration-300 hover:text-[#428d1b]">
+                     Buy Now
+                     </button>
+                      :
+                     <Link to ="/">
+                      <button className="w-full py-2 border border-[#428d1b] rounded-md text-lg bg-[#428d1b] text-white hover:bg-transparent ease-in-out duration-300 hover:text-[#428d1b]">
+                      Login To Buy Now
+                     </button>
+                     </Link>
+                   }
+                    </div>
+                
             </div>
         </div>
       </div>
     </div>
+                     </>
   );
 };
 

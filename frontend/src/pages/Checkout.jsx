@@ -134,24 +134,37 @@ const Checkout = () => {
   }, []);
 
   return (
-    <div className="my-32 mx-auto">
-      <h1 className="text-[#24243e] text-4xl mb-10">Checkout Page</h1>
+    <div className="my-32 mx-auto p-4">
+      <h1 className="text-[#24243e] mb-4 text-4xl text-center">Checkout</h1>
+      <div className="h-auto flex flex-col items-center w-full border shadow-md rounded-md overflow-hidden">
+       <h1  style={{
+          background: "linear-gradient(to right, #0f0c29, #302b63, #24243e)",
+        }}
+         className="h-12 w-full text-white text-xl py-3 px-4">
+       Economical-Plan ₹{(employeeCount*1000).toFixed(2) || 0}
+       </h1>
+       <div className="flex-col text-center flex items-center justify-center">
+        <span className="w-1/2 leading-6 pt-6">Subscribe to Economical-Plan and get access to all the amazing features of this plan</span>
+       <span className="text-xl font-bold py-2"> ₹{((employeeCount || 0) * 1000).toFixed(2)} only</span>
+       </div>
 
-      <div className="border w-[30rem] px-2 gap-2 py-2 flex">
+      <div className=" w-[30rem] px-2 gap-2 py-2 flex">
         <button
           disabled={!razorpayKey}
           onClick={createSubscriptionHandler}
           className="w-full py-2 border border-[#ff4c4c] rounded-md text-lg bg-[#ff4c4c] text-white hover:bg-transparent ease-in-out duration-300 hover:text-[#ff4c4c] disabled:cursor-not-allowed"
         >
-          Subscribe Now
+          {/* Subscribe Now */}
+          Proceed To Pay
         </button>
-        <button
+        {/* <button
           disabled={!razorpayKey}
           className="w-full py-2 border border-[#428d1b] rounded-md text-lg bg-[#428d1b] text-white hover:bg-transparent ease-in-out duration-300 hover:text-[#428d1b] disabled:cursor-not-allowed"
         >
           Buy Now
-        </button>
+          </button> */}
       </div>
+          </div>
     </div>
   );
 };
